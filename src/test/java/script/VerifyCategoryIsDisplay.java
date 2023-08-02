@@ -26,16 +26,16 @@ public class VerifyCategoryIsDisplay extends BaseClass {
 	@Test
 	public void verifyElementIsPresentOrNot() {
 
-//		try {
+		try {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		WebElement ele = (WebElement) js.executeScript(
 				"return document.querySelector(\"#wzrkImageOnlyDiv > ct-web-popup-imageonly\").shadowRoot.querySelector(\"#close\")");
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.visibilityOf(ele));
 		js.executeScript("arguments[0].click()", ele);
-//		}catch(Exception e) {
-//			
-//		}
+		}catch(Exception e) {
+			
+		}
 
 		List<String> list = new ArrayList<String>();
 		list.add("MEN");

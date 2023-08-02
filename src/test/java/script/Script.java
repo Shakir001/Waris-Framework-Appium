@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,8 +16,8 @@ public class Script {
 
 	public static void main(String[] args) {
 		
-		
-		WebDriver driver = WebDriverManager.chromedriver().create();
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
 		driver.get("https://allensolly.abfrl.in/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -36,11 +37,12 @@ public class Script {
 		
 		driver.findElement(By.xpath("//input[@placeholder=\"Enter Pincode/City/Area\"]")).sendKeys("560085");
 		
-		WebElement java = driver.findElement(By.xpath("//input[@placeholder=\"Enter Pincode/City/Area\"]/ancestor::div[@class=\"containerGrid\"]/descendant::div[@class=\"StoreLocator_locationContainer__XUTQj null\"]"));
+		
+		WebElement java = driver.findElement(By.xpath("//input[@placeholder=\"Enter Pincode/City/Area\"]/ancestor::div[@class=\"containerGrid\"]/descendant::div[@class=\"StoreLocator_eachStore__XLu3Z\"]"));
 	    
 		System.out.println(java.getText());
 		
-		System.out.println("hello");
+		
 	
 	}
 

@@ -3,17 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="script.VerifyCategoryIsDisplay">
+      <class name="script.Practice">
         <methods>
-          <include name="tearDownConfig"/>
-          <include name="verifyElementIsPresentOrNot"/>
-          <include name="testConfig"/>
-          <include name="tearDownMethod"/>
-          <include name="suiteConfig"/>
-          <include name="classConfig"/>
-          <include name="classTearDown"/>
+          <include name="main"/>
         </methods>
-      </class> <!-- script.VerifyCategoryIsDisplay -->
+      </class> <!-- script.Practice -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
