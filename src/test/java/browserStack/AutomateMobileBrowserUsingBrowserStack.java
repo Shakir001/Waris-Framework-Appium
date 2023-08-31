@@ -20,6 +20,8 @@ public class AutomateMobileBrowserUsingBrowserStack {
 
 	@Test
 	public  void main() {
+		
+		System.out.println("java");
 	
 		File file = new File("C:\\Users\\waris ansari\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js");
 		AppiumDriverLocalService service = new AppiumServiceBuilder().withAppiumJS(file).withIPAddress("127.0.0.1")
