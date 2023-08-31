@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.poi.EncryptedDocumentException;
-import org.apache.poi.ss.usermodel.DataFormat;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -28,11 +27,13 @@ public class ExcelLibrary {
 			e.printStackTrace();
 		}
 
-		try {
-			wb = WorkbookFactory.create(fis);
-		} catch (EncryptedDocumentException | IOException e) {
-			e.printStackTrace();
-		}
+		
+			try {
+				wb = WorkbookFactory.create(fis);
+			} catch (EncryptedDocumentException | IOException e) {
+				e.printStackTrace();
+			}
+		
 	}
 	
 	public String fetchSingleDataFromExcelSheet(String sheetName, int rowNum, int cellNum) {
@@ -60,7 +61,6 @@ public class ExcelLibrary {
 		try {
 			wb.close();
 		} catch (IOException e) {
-			
 			e.printStackTrace();
 		}
 	}

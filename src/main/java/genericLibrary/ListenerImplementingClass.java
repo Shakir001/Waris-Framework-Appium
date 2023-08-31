@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
@@ -16,6 +17,9 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+
+
+
 
 public class ListenerImplementingClass implements ITestListener {
 
@@ -40,15 +44,18 @@ public class ListenerImplementingClass implements ITestListener {
 	@Override
 	public void onTestFailure(ITestResult result) {
 		
-		EventFiringWebDriver driver = new EventFiringWebDriver(BaseClass.sdriver);
-		File src = driver.getScreenshotAs(OutputType.FILE);
-		File dest = new File("./screen/shot.png");
+		TakesScreenshot ts = (TakesScreenshot)BaseAppiumClass.sdriver;
+//		EventFiringWebDriver e = new EventFiringWebDriver(BaseAppiumClass.sdriver);
+		File src = ts.getScreenshotAs(OutputType.FILE);
+		File dest = new File("./screen"+System.currentTimeMillis()+"/shot.png");
 		try {
 			FileUtils.copyFile(src, dest);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		test.log(Status.FAIL, result.getThrowable());
+		String path = dest.getAbsolutePath();
+		
 		
 	}
 
@@ -57,7 +64,7 @@ public class ListenerImplementingClass implements ITestListener {
 	
 		String mName = result.getMethod().getMethodName();
 		test.log(Status.SKIP, mName);
-		Reporter.log(mName+" test execution skip");
+		Reporter.log(mName+" test execution skip ");
 	}
 
 	@Override

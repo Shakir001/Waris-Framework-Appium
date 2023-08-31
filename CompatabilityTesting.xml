@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="2" parallel="tests" name="Suite">
+	<test name="Google Pixel">
+		<classes>
+			<class name="testCase.Script1"></class>
+		</classes>
+	</test> <!-- Test -->
+	<!-- compatability testing -->
+	<test name="">
+		<classes>
+			<class name="testCase.Script2"></class>
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
